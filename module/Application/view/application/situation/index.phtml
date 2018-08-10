@@ -1,0 +1,49 @@
+<?php
+
+use Application\Model\Register;
+
+$title = 'Current Situation';
+$this->headTitle($title);
+?>
+<div class="row">
+    <h1><?= $this->escapeHtml($title) ?></h1>
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Business</th>
+                <th scope="col">Location</th>
+                <th scope="col">Type</th>
+                <th scope="col">Contactperson</th>
+                <th scope="col">Phonenumber</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Reopening Date</th>
+                <th scope="col">Condition</th>
+                <th scope="col">Website</th>
+                <th scope="col">Coordinates</th>
+                <th scope="col">Notice</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach($businesses as $business) :
+                /** @var $business Register */
+            ?>
+            <tr>
+                <td><?=$business->getBusiness() ?></td>
+                <td><?=$business->getLocation() ?></td>
+                <td><?=$business->getType() ?></td>
+                <td><?=$business->getContactperson() ?></td>
+                <td><?=$business->getPhonenumber() ?></td>
+                <td><?=$business->getEmail() ?></td>
+                <td><?=$business->getStartdate() ?></td>
+                <td><?=$business->getCondition() ?></td>
+                <td><?=$business->getWebsite() ?></td>
+                <td><?=$business->getGps() ?></td>
+                <td><?=$business->getNotice() ?></td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

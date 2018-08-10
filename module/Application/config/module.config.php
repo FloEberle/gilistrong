@@ -39,6 +39,16 @@ return [
                     ],
                 ],
             ],
+            'situation' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/situation[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\SituationController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
 //    'controllers' => [

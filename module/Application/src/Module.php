@@ -43,6 +43,9 @@ class Module implements ConfigProviderInterface
                 Controller\RegisterController::class => function($container) {
                     return new Controller\RegisterController($container->get(Model\RegisterTable::class));
                 },
+                Controller\SituationController::class => function($container) {
+                    return new Controller\SituationController($container->get(Model\RegisterTable::class));
+                },
                 Controller\IndexController::class => function($container) {
                     return new Controller\IndexController();
                 }

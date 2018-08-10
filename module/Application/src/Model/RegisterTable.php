@@ -15,6 +15,11 @@ class RegisterTable
         $this->tableGateway = $tableGateway;
     }
 
+    public function fetchAll()
+    {
+        return $this->tableGateway->select();
+    }
+
     public function saveRegistration(Register $register)
     {
         $data = [
