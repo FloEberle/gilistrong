@@ -74,6 +74,18 @@ class Register implements InputFilterAwareInterface
         $this->notice = !empty($data['notice']) ? $data['notice'] : null;
     }
 
+    public function getArrayCopy()
+    {
+        return [
+            'business' => $this->business,
+            'startdate' => $this->startdate,
+            'condition' => $this->condition,
+            'website' => $this->website,
+            'gps' => $this->gps,
+            'notice' => $this->notice,
+        ];
+    }
+
 
     /**
      * Retrieve input filter

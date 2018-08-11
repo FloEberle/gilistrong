@@ -29,7 +29,23 @@ $this->headTitle($title);
             foreach($businesses as $business) :
                 /** @var $business Register */
             ?>
-            <tr>
+            <tr
+            <?php
+                $status = '';
+                switch($business->getCondition()) {
+                    case 'Fully operational':
+                        $status = 'condition-green';
+                        break;
+                    case 'Partly operational':
+                        $status = 'condition-yellow';
+                        break;
+                    case 'Not operational':
+                        $status = 'condition-red';
+                        break;
+                }
+                echo 'class="'.$status.'"';
+            ?>
+            >
                 <td><?=$this->escapeHtml($business->getBusiness()) ?></td>
                 <td><?=$this->escapeHtml($business->getLocation()) ?></td>
                 <td><?=$this->escapeHtml($business->getType()) ?></td>

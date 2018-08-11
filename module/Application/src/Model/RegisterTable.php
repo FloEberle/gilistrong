@@ -22,6 +22,30 @@ class RegisterTable
         return $this->tableGateway->select();
     }
 
+    public function authenticate($email, $password)
+    {
+        return $this->tableGateway->select(['email' => $email, 'password' => sha1($password . RegisterTable::STATIC_SALT)]);
+    }
+
+    public function getRegistration($email)
+    {
+        $rowset = $this->tableGateway->select(['email' => $email]);
+        return $rowset->current();
+    }
+
+    public function update(string $email, Register $register)
+    {
+        $data = [
+            'startdate' => $register->getStartdate(),
+            'condition' => $register->getCondition(),
+            'website' => $register->getWebsite(),
+            'gps' => $register->getGps(),
+            'notice' => $register->getNotice(),
+        ];
+
+        $this->tableGateway->update($data, ['email' => $email]);
+    }
+
     public function saveRegistration(Register $register)
     {
         $data = [

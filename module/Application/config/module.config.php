@@ -80,4 +80,7 @@ data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>',
             'message_separator_string' => '</li><li>',
         ],
     ],
+    'session_containers' => [
+        'SessionData'
+    ],
 ];

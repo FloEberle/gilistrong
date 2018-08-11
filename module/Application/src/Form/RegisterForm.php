@@ -3,6 +3,7 @@
 namespace Application\Form;
 
 
+use Zend\Captcha\Dumb;
 use Zend\Form\Form;
 
 class RegisterForm extends Form
@@ -100,7 +101,7 @@ class RegisterForm extends Form
                 'label' => 'Current Condition*',
                 'value_options' => [
                     '' => 'Not specified',
-                    '100% Fully operational' => '100% Fully operational',
+                    'Fully operational' => 'Fully operational',
                     'Partly operational' => 'Partly operational',
                     'Not operational' => 'Not operational',
                 ],
@@ -128,6 +129,15 @@ class RegisterForm extends Form
             'type' => 'textarea',
             'options' => [
                 'label' => 'Additional Information',
+            ],
+        ]);
+
+        $this->add([
+            'name' => 'captcha',
+            'type' => 'captcha',
+            'options' => [
+                'label' => 'Anti Spam ',
+                'captcha' => new Dumb(),
             ],
         ]);
 

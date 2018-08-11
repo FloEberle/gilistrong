@@ -2,7 +2,7 @@
     <h1>Welcome to <span class="zf-green">#GiliStrong</span></h1>
 
     <p>
-        Welcome Text goes here
+        Overview of the condition of businesses on Gili Air, Gili Meno, Gili Trawangan, Lombok and Bali
     </p>
 </div>
 
@@ -15,7 +15,7 @@
             </div>
             <div class="panel-body">
                 <p>
-                    Some description
+                    View the current condition of registered businesses
                 </p>
 
                 <p><a class="btn btn-success pull-right" href="<?=$this->url('situation')?>"">Current Situation &raquo;</a></p>
@@ -30,7 +30,7 @@
             </div>
             <div class="panel-body">
                 <p>
-                    Some description
+                    Register your business to provide information about the current condition
                 </p>
 
                 <p><a class="btn btn-success pull-right" href="<?=$this->url('register')?>">Register &raquo;</a></p>
@@ -41,14 +41,14 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">More options</h3>
+                <h3 class="panel-title">Update your business</h3>
             </div>
             <div class="panel-body">
                 <p>
-                    Edit your business, Contact Form..?
+                    Provide us with the latest condition updates of your business
                 </p>
 
-                <p><a class="btn btn-success pull-right" href="#">More &raquo;</a></p>
+                <p><a class="btn btn-success pull-right" href="<?=$this->url('register', ['controller' => 'register', 'action' => 'update'])?>">Update your business &raquo;</a></p>
             </div>
         </div>
     </div>

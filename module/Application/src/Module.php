@@ -2,10 +2,13 @@
 
 namespace Application;
 
+use Zend\Authentication\Storage\Session;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\Mvc\MvcEvent;
+use Zend\Session\SessionManager;
 
 class Module implements ConfigProviderInterface
 {
@@ -14,6 +17,16 @@ class Module implements ConfigProviderInterface
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';
+    }
+
+    public function onBootstrap(MvcEvent $event)
+    {
+        $application = $event->getApplication();
+        $serviceManager = $application->getServiceManager();
+
+        // The following line instantiates the SessionManager and automatically
+        // makes the SessionManager the 'default' one.
+        $sessionManager = $serviceManager->get(SessionManager::class);
     }
 
     public function getServiceConfig()
@@ -41,7 +54,10 @@ class Module implements ConfigProviderInterface
         return [
             'factories' => [
                 Controller\RegisterController::class => function($container) {
-                    return new Controller\RegisterController($container->get(Model\RegisterTable::class));
+                    return new Controller\RegisterController(
+                        $container->get(Model\RegisterTable::class),
+                        $container->get('SessionData')
+                    );
                 },
                 Controller\SituationController::class => function($container) {
                     return new Controller\SituationController($container->get(Model\RegisterTable::class));
