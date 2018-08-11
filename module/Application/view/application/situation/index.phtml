@@ -30,17 +30,17 @@ $this->headTitle($title);
                 /** @var $business Register */
             ?>
             <tr>
-                <td><?=$business->getBusiness() ?></td>
-                <td><?=$business->getLocation() ?></td>
-                <td><?=$business->getType() ?></td>
-                <td><?=$business->getContactperson() ?></td>
-                <td><?=$business->getPhonenumber() ?></td>
-                <td><?=$business->getEmail() ?></td>
-                <td><?=$business->getStartdate() ?></td>
-                <td><?=$business->getCondition() ?></td>
-                <td><?=$business->getWebsite() ?></td>
-                <td><?=$business->getGps() ?></td>
-                <td><?=$business->getNotice() ?></td>
+                <td><?=$this->escapeHtml($business->getBusiness()) ?></td>
+                <td><?=$this->escapeHtml($business->getLocation()) ?></td>
+                <td><?=$this->escapeHtml($business->getType()) ?></td>
+                <td><?=$this->escapeHtml($business->getContactperson()) ?></td>
+                <td><?=$this->escapeHtml($business->getPhonenumber()) ?></td>
+                <td><?=$this->escapeHtml($business->getEmail()) ?></td>
+                <td><?=$this->escapeHtml($business->getStartdate()) ?></td>
+                <td><?=$this->escapeHtml($business->getCondition()) ?></td>
+                <td><?=$this->escapeHtml($business->getWebsite()) ?></td>
+                <td><?=$this->escapeHtml($business->getGps()) ?></td>
+                <td><?=$this->escapeHtml($business->getNotice()) ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
