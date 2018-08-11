@@ -8,6 +8,8 @@ use Zend\Db\TableGateway\TableGatewayInterface;
 
 class RegisterTable
 {
+    private const STATIC_SALT = 'gilistrong';
+
     private $tableGateway;
 
     public function __construct(TableGatewayInterface $tableGateway)
@@ -29,7 +31,7 @@ class RegisterTable
             'contactperson' => $register->getContactperson(),
             'phonenumber' => $register->getPhonenumber(),
             'email' => $register->getEmail(),
-            'password' => $register->getPassword(), //Todo: Hash
+            'password' => sha1($register->getPassword() . RegisterTable::STATIC_SALT),
             'startdate' => $register->getStartdate(),
             'condition' => $register->getCondition(),
             'website' => $register->getWebsite(),

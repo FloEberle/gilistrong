@@ -40,7 +40,7 @@ class RegisterController extends AbstractActionController
 
         $register->exchangeArray($form->getData());
         $this->registerTable->saveRegistration($register);
-        $this->flashMessenger()->addSuccessMessage('Thanks! Successful registration of your business.');
+        $this->flashMessenger()->addSuccessMessage('Thank you! Your Business is succesfully registered.');
         return $this->redirect()->toRoute('home');
     }
 
