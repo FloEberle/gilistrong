@@ -12,10 +12,10 @@ $this->headTitle($title);
             <thead>
             <tr>
                 <th scope="col">Business</th>
-                <th scope="col">Location</th>
+                <th scope="col">Island</th>
                 <th scope="col">Type</th>
                 <th scope="col">Contactperson</th>
-                <th scope="col">Phonenumber</th>
+                <th scope="col">Phone</th>
                 <th scope="col">E-Mail</th>
                 <th scope="col">Reopening Date</th>
                 <th scope="col">Condition</th>
@@ -54,8 +54,16 @@ $this->headTitle($title);
                 <td><?=$this->escapeHtml($business->getEmail()) ?></td>
                 <td><?=$this->escapeHtml($business->getStartdate()) ?></td>
                 <td><?=$this->escapeHtml($business->getCondition()) ?></td>
-                <td><?=$this->escapeHtml($business->getWebsite()) ?></td>
-                <td><?=$this->escapeHtml($business->getGps()) ?></td>
+                <td><a href="<?=$business->getWebsite()?>" target="_blank"><?=$this->escapeHtml($business->getWebsite()) ?></a></td>
+                <td>
+                    <?php
+                    if($business->getGps()) {
+                        echo '<a href="https://maps.google.com/?ll='.$business->getGps().'" target="_blank"">Google Maps</a>';
+                    } else {
+                        echo '<a href="https://maps.google.com/?q='.$business->getBusiness().'" target="_blank">Google Maps</a>';
+                    }
+                    ?>
+                </td>
                 <td><?=$this->escapeHtml($business->getNotice()) ?></td>
             </tr>
             <?php endforeach; ?>

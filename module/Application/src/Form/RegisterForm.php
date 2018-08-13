@@ -80,8 +80,11 @@ class RegisterForm extends Form
             'name' => 'password',
             'type' => 'password',
             'options' => [
-                'label' => 'Password (for further modifications)*',
+                'label' => 'Password*',
             ],
+            'attributes' => [
+                'placeholder' => 'Min. 6 Characters. For further modification of your record'
+            ]
         ]);
 
 
@@ -120,15 +123,19 @@ class RegisterForm extends Form
             'name' => 'gps',
             'type' => 'text',
             'options' => [
-                'label' => 'GPS Coordinates (Format: Lat,Long)',
+                'label' => 'GPS Coordinates',
+
             ],
+            'attributes' => [
+                'placeholder' => 'Latitude, Longitude (Example: -8.363690, 116.082383)',
+            ]
         ]);
 
         $this->add([
             'name' => 'notice',
             'type' => 'textarea',
             'options' => [
-                'label' => 'Additional Information',
+                'label' => 'Additional Information: Include your current status and immediate needs here (e.g. “rebuild in progress”, or “main building needs structural testing”, etc)',
             ],
         ]);
 

@@ -10,7 +10,6 @@ use Application\Model\Register;
 use Application\Model\RegisterTable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\Container;
-use Zend\Session\SessionManager;
 
 class RegisterController extends AbstractActionController
 {
@@ -128,6 +127,14 @@ class RegisterController extends AbstractActionController
 
         $this->flashMessenger()->addSuccessMessage('Authentication successful');
         return $this->redirect()->toRoute('register', ['controller' => 'register', 'action' => 'update']);
+
+    }
+
+    public function logoutAction()
+    {
+        unset($this->sessionContainer->loggedInEmail);
+        $this->flashMessenger()->addSuccessMessage('Logout successful');
+        return $this->redirect()->toRoute('home');
 
     }
 
