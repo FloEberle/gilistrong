@@ -14,13 +14,9 @@ $this->headTitle($title);
                 <th scope="col">Business</th>
                 <th scope="col">Island</th>
                 <th scope="col">Type</th>
-                <th scope="col">Contactperson</th>
-                <th scope="col">Phone</th>
-                <th scope="col">E-Mail</th>
+                <th scope="col">Contact</th>
                 <th scope="col">Reopening Date</th>
                 <th scope="col">Condition</th>
-                <th scope="col">Website</th>
-                <th scope="col">Coordinates</th>
                 <th scope="col">Notice</th>
             </tr>
             </thead>
@@ -49,20 +45,16 @@ $this->headTitle($title);
                 <td><?=$this->escapeHtml($business->getBusiness()) ?></td>
                 <td><?=$this->escapeHtml($business->getLocation()) ?></td>
                 <td><?=$this->escapeHtml($business->getType()) ?></td>
-                <td><?=$this->escapeHtml($business->getContactperson()) ?></td>
-                <td><?=$this->escapeHtml($business->getPhonenumber()) ?></td>
-                <td><?=$this->escapeHtml($business->getEmail()) ?></td>
-                <td><?=$this->escapeHtml($business->getStartdate()) ?></td>
-                <td><?=$this->escapeHtml($business->getCondition()) ?></td>
                 <td>
+                    <?=$this->escapeHtml($business->getContactperson()) ?><br />
+                    <?=$this->escapeHtml($business->getPhonenumber()) ?><br />
+                    <a style="white-space: nowrap;" href="mailto: <?=$this->escapeHtml($business->getEmail()) ?>"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>E-Mail</a><br />
                     <?php if(!empty($business->getWebsite())): ?>
-                    <a href="<?=$business->getWebsite()?>" target="_blank">
-                        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
-                        Website
-                    </a>
+                        <a  style="white-space: nowrap;" href="<?=$business->getWebsite()?>" target="_blank">
+                            <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                            Website
+                        </a><br />
                     <?php endif; ?>
-                </td>
-                <td>
                     <?php
                     if($business->getGps()) {
                         echo '<a href="https://maps.google.com/?ll='.$business->getGps().'" target="_blank""><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Map</a>';
@@ -71,6 +63,8 @@ $this->headTitle($title);
                     }
                     ?>
                 </td>
+                <td><?=$this->escapeHtml($business->getStartdate()) ?></td>
+                <td><?=$this->escapeHtml($business->getCondition()) ?></td>
                 <td><?=$this->escapeHtml($business->getNotice()) ?></td>
             </tr>
             <?php endforeach; ?>
