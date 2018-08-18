@@ -47,8 +47,8 @@ $this->headTitle($title);
                 <td><?=$this->escapeHtml($business->getType()) ?></td>
                 <td>
                     <?=$this->escapeHtml($business->getContactperson()) ?><br />
-                    <?=$this->escapeHtml($business->getPhonenumber()) ?><br />
-                    <a style="white-space: nowrap;" href="mailto: <?=$this->escapeHtml($business->getEmail()) ?>"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>E-Mail</a><br />
+                    <a href="tel:<?=$this->escapeHtml($business->getPhonenumber()) ?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><?=$this->escapeHtml($business->getPhonenumber()) ?></a><br />
+                    <a style="white-space: nowrap;" href="mailto:<?=$this->escapeHtml($business->getEmail()) ?>"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>E-Mail</a><br />
                     <?php if(!empty($business->getWebsite())): ?>
                         <a  style="white-space: nowrap;" href="<?=$business->getWebsite()?>" target="_blank">
                             <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
