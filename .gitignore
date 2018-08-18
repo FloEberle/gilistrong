@@ -2,6 +2,7 @@
 .idea/
 vendor/
 config/development.config.php
+config/autoload/global.php
 data/cache/*
 !data/cache/.gitkeep
 phpunit.xml

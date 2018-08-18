@@ -28,8 +28,6 @@ class RegisterForm extends Form
                     'Gili Air' => 'Gili Air',
                     'Gili Meno' => 'Gili Meno',
                     'Gili Trawangan' => 'Gili Trawangan',
-                    'Lombok' => 'Lombok',
-                    'Bali' => 'Bali',
                 ],
                 
             ],
