@@ -111,7 +111,7 @@ class RegisterForm extends Form
 
         $this->add([
             'name' => 'website',
-            'type' => 'text',
+            'type' => 'url',
             'options' => [
                 'label' => 'Website',
             ],

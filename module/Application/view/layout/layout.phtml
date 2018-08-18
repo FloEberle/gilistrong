@@ -10,8 +10,10 @@
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
 
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
         <!-- Le styles -->
-        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+        <?= $this->headLink()
             ->prependStylesheet($this->basePath('css/style.css'))
             ->prependStylesheet($this->basePath('css/datetime-polyfill.css'))
             ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
@@ -20,10 +22,31 @@
 
         <!-- Scripts -->
         <?= $this->headScript()
+            ->prependFile($this->basePath('js/dataTables.bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery.dataTables.min.js'))
             ->prependFile($this->basePath('js/polyfiller.js'))
             ->prependFile($this->basePath('js/bootstrap.min.js'))
             ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
         ?>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -75,7 +98,7 @@
             <hr>
             <footer>
                 <p>#GiliStrong - Overview of the condition of businesses on Gili Air, Gili Meno and Gili Trawangan</p>
-		<p class="text-muted">For questions, please send email to info@freediveflow.com and phone/wa +62 811 3981166</p>
+                <p class="text-muted">For questions, please send email to <a href="mailto:info@freediveflow.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> info@freediveflow.com</a> and phone/wa <a href="tel:+628113981166"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +62 811 3981166</a></p>
             </footer>
         </div>
         <script>

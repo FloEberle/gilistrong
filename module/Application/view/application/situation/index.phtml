@@ -8,9 +8,9 @@ $this->headTitle($title);
 <div class="row">
     <h1><?= $this->escapeHtml($title) ?></h1>
     <div class="table-responsive-sm">
-        <table class="table">
-            <thead>
-            <tr>
+        <table class="table" id="situationTable">
+            <thead class="thead-dark">
+            <tr style="cursor:pointer">
                 <th scope="col">Business</th>
                 <th scope="col">Island</th>
                 <th scope="col">Type</th>
@@ -54,13 +54,20 @@ $this->headTitle($title);
                 <td><?=$this->escapeHtml($business->getEmail()) ?></td>
                 <td><?=$this->escapeHtml($business->getStartdate()) ?></td>
                 <td><?=$this->escapeHtml($business->getCondition()) ?></td>
-                <td><a href="<?=$business->getWebsite()?>" target="_blank"><?=$this->escapeHtml($business->getWebsite()) ?></a></td>
+                <td>
+                    <?php if(!empty($business->getWebsite())): ?>
+                    <a href="<?=$business->getWebsite()?>" target="_blank">
+                        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                        Website
+                    </a>
+                    <?php endif; ?>
+                </td>
                 <td>
                     <?php
                     if($business->getGps()) {
-                        echo '<a href="https://maps.google.com/?ll='.$business->getGps().'" target="_blank"">Google Maps</a>';
+                        echo '<a href="https://maps.google.com/?ll='.$business->getGps().'" target="_blank""><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Map</a>';
                     } else {
-                        echo '<a href="https://maps.google.com/?q='.$business->getBusiness().'" target="_blank">Google Maps</a>';
+                        echo '<a href="https://maps.google.com/?q='.$business->getBusiness().'" target="_blank"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>Map</a>';
                     }
                     ?>
                 </td>
@@ -71,3 +78,12 @@ $this->headTitle($title);
         </table>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#situationTable').DataTable({
+                "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "All"]],
+            }
+        );
+    } );
+</script>
