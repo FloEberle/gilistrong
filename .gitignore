@@ -6,3 +6,4 @@ config/autoload/global.php
 data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
+public/img/map/*
