@@ -128,6 +128,15 @@ class Register implements InputFilterAwareInterface
         ]);
 
         $inputFilter->add([
+            'name' => 'website',
+            'required' => false,
+            'filters' => [
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+            ],
+        ]);
+
+        $inputFilter->add([
             'name' => 'type',
             'required' => true,
             'filters' => [
